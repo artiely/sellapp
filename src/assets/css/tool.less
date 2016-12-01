@@ -1,0 +1,80 @@
+/* 工具样式 */
+
+/*
+超出的文字省略号隐藏 传入的参数为行数
+*/
+
+.textover(@line){
+  overflow: hidden;
+  /*超出隐藏需要设置宽高超出高就隐藏*/
+  text-overflow: ellipsis;
+  /*以省略号的形式隐藏*/
+  -webkit-line-clamp: @line;
+  /*超出多少行以省略的形式隐藏*/
+  /* Firefox 从上往下排列*/
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  /* Safari、Opera 以及 Chrome */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* W3C */
+  display: box;
+  box-orient: vertical;
+  text-align:justify; text-justify:distribute-all-lines; text-align-last:justify;
+}
+
+/*清楚浮动的*/
+.clear:after {
+  content: ".";
+  display: block;
+  height:0;
+  line-height:0;
+  visibility: hidden;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*移动端1px的解决方案*/
+.border-1px(@color) {
+  position: relative;
+  &:after {
+    content: ' ';
+    background: @color;
+    position: absolute;
+    height:1px;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    @media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2) {
+          -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+          background: @color;
+    }
+    @media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5) {
+          -webkit-transform: scaleY(.6666);
+          transform: scaleY(.6666);
+          background: @color;
+    }
+    @media (-webkit-device-pixel-ratio:3),(device-pixel-ratio:3) {
+          -webkit-transform: scaleY(.3333);
+          transform: scaleY(.3333);
+          background: @color;
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
