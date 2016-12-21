@@ -11,8 +11,8 @@
         <router-link to="/seller">商家</router-link>
       </div>
       <!-- 路由出口 -->
-      <!-- 路由匹配到的组件将渲染在这里 -->
-      <router-view></router-view>
+      <!-- 路由匹配到的组件将渲染在这里  seller数据再次传递给路由在传递给子组件-->
+      <router-view :seller="seller"></router-view>
     </div>
 </template>
 
